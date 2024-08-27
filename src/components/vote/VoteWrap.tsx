@@ -52,7 +52,7 @@ function VoteWrap() {
         );
     }
 
-    const updateVoteList = (index: number, item: any)=>{
+    const updateVoteList = (index: number, item: voteItem[])=>{
         if(index>voteList.length-1) return;
         voteList[index] = item;
         setVoteList([...voteList]);

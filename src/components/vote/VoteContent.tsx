@@ -1,10 +1,10 @@
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import {voteItem} from "@/components/vote/VoteInterface";
+import {voteItem, updateVoteList} from "@/components/vote/VoteInterface";
 
 import VoteIcon from "@/components/vote/VoteIcon";
 
-function VoteContent(props: {data: voteItem[], index: number, update: any, stateConsistency: boolean}) {
+function VoteContent(props: {data: voteItem[], index: number, update: updateVoteList, stateConsistency: boolean}) {
     const {data, index, update, stateConsistency} = props;
 
     const handleAdd = (index: number)=>{
