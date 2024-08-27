@@ -4,15 +4,26 @@ import {voteItem} from "@/components/vote/VoteInterface";
 
 import VoteIcon from "@/components/vote/VoteIcon";
 
-function VoteContent(props: {data: voteItem[], index: number, update: any}) {
-    const {data, index, update} = props;
+function VoteContent(props: {data: voteItem[], index: number, update: any, stateConsistency: boolean}) {
+    const {data, index, update, stateConsistency} = props;
 
     const handleAdd = (index: number)=>{
-        update(index, [...data, {status: false}]);
+        let status = false;
+        if(stateConsistency){
+            status = data[0].status;
+        }
+        update(index, [...data, {status}]);
     }
 
     const handleChange = (subIndex: number)=>{
-        data[subIndex].status = !data[subIndex].status;
+        if(stateConsistency){
+            let status = !data[subIndex].status;
+            data.forEach((item: voteItem)=>{
+                item.status = status;
+            })
+        }else{
+            data[subIndex].status = !data[subIndex].status;
+        }
         update(index, [...data]);
     }
 
