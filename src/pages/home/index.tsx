@@ -1,10 +1,11 @@
-import Vote from "@/components/Vote";
+import VoteWrap from '../../components/vote/VoteWrap';
 
 function Home() {
+
     return (
-        <div>
-            Home
-            <Vote />
+        <div className="mx-[15px] my-[15px]">
+            <h1>Vote</h1>
+            <VoteWrap />
         </div>
     );
 }
